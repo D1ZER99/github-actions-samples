@@ -8,4 +8,4 @@ namespace: hello-gitops
 images:
 - name: hello-gitops
   newName: d1zer99/hello-gitops
-  newTag: 42b4d3fd241567a8d26b9f4090d35821a15223d6
+  newTag: 568523755cd9f3001a7a43472d8aafd95ef7582e
