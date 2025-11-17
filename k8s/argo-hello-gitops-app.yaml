@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hello-gitops
+  namespace: argocd          # ArgoCD's own namespace in GKE
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/D1ZER99/git-hub-actions-gke.git
+    targetRevision: main
+    path: argo_cd_test/github-actions-samples/k8s   # <-- path where kustomization.yaml is
+  destination:
+    server: https://kubernetes.default.svc          # ArgoCD is running inside the GKE cluster
+    namespace: hello-gitops                         # Same as in kustomization.yaml
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
